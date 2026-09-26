@@ -2,6 +2,27 @@
 
 Excel Cleaner is a command-line tool that safely cleans CSV and Excel (`.xlsx`) files and produces both a cleaned Excel file and a JSON change report. It never overwrites the source file and never invents missing data.
 
+## Tech Stack
+
+- Python
+- Pandas
+- OpenPyXL
+- JSON
+- argparse
+- Pytest
+
+## Project Structure
+
+```text
+ExcelCleaner/
+├── excel_cleaner.py
+├── input/
+├── output/
+├── tests/
+├── requirements.txt
+└── README.md
+```
+
 ## Install
 
 ```bash
@@ -34,8 +55,26 @@ output/customers_cleaning_report.json
 
 ## Report
 
-The JSON report includes row counts, removed duplicates and blank rows, missing-value counts, invalid email/phone/date values, standardization totals, numeric conversions or unconverted numeric-looking values, changed column names, and warnings.
+The JSON report includes:
+
+- Row counts
+- Removed duplicates and blank rows
+- Missing-value counts
+- Invalid email, phone, and date values
+- Standardization totals
+- Numeric conversions
+- Unconverted numeric-looking values
+- Changed column names
+- Warnings
 
 ## Limitations
 
-The tool deliberately avoids guessing. Slash-separated dates use US month/day order by default. It does not infer missing values, country codes, or repairs for unknown email addresses. Literal `NA` is retained because it can be legitimate data. European numeric formats such as `1.250,50` are not supported. CSV files are read with standard comma-separated formatting.
+The tool deliberately avoids guessing.
+
+- Slash-separated dates use US month/day order by default.
+- It does not infer missing values.
+- It does not infer country codes.
+- It does not repair unknown email addresses.
+- Literal `NA` is retained because it can be legitimate data.
+- European numeric formats such as `1.250,50` are not supported.
+- CSV files are read with standard comma-separated formatting.
